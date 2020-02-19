@@ -1,7 +1,7 @@
 # Install new liferay instance
 
 Clone this repo to a temp folder. \
-`git clone xxx .`
+`git clone https://github.com/avido/liferay-ubuntu-nginx-certbot.git .`
 
 ## Install required packages
 `apt get update` \
