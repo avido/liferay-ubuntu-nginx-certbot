@@ -1,0 +1,30 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides: tomcat7
+# Required-Start: $network
+# Required-Stop: $network
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Start/Stop Tomcat server
+### END INIT INFO
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+start() {
+sh /opt/liferay-7.2.0-4/ctlscript.sh start mysql
+sh /opt/liferay-7.2.0-4/ctlscript.sh start elasticsearch
+sh /opt/liferay-7.2.0-4/ctlscript.sh start tomcat
+#sh /opt/liferay-7.2.0-4/apache-tomcat/bin/startup.sh
+}
+
+stop() {
+sh /opt/liferay-7.2.0-4/ctlscript.sh stop mysql
+sh /opt/liferay-7.2.0-4/ctlscript.sh stop elasticsearch
+sh /opt/liferay-7.2.0-4/ctlscript.sh stop tomcat
+#sh /opt/liferay-7.2.0-4/apache-tomcat/bin/shutdown.sh
+}
+
+case $1 in
+start|stop) $1;;
+restart) stop; start;;
+*) echo “Run as $0 “; exit 1;;
+esac
