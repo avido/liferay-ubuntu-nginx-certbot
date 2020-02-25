@@ -30,6 +30,12 @@ Reload nginx config
 
 `sudo /usr/local/bin/certbot-auto --nginx`
 
+-- install certificate
+`sudo certbot --nginx -d example.com -d www.example.com`
+
+https://www.nginx.com/blog/using-free-ssltls-certificates-from-lets-encrypt-with-nginx/
+
+
 Auto renewal should be present in /etc/cron.d/<certbot> if not you can copy the snippet
 
 ### adjust nginx config with ssl part (snippet)
